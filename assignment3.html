@@ -420,53 +420,109 @@ the assignment to Canvas under Assignment 3.</p>
 </tr>
 </tbody>
 </table>
-<p>df = data.frame(Rank = c(‘0’,‘1’,‘2’,‘3’), Age =
-c(‘28’,‘34’,‘29’,‘42’), Name = c(‘Tom’,‘Jack’,‘Steve’,‘Ricky’))</p>
+<pre class="r"><code>df = data.frame(Rank = c(&#39;0&#39;,&#39;1&#39;,&#39;2&#39;,&#39;3&#39;), Age = c(&#39;28&#39;,&#39;34&#39;,&#39;29&#39;,&#39;42&#39;), Name = c(&#39;Tom&#39;,&#39;Jack&#39;,&#39;Steve&#39;,&#39;Ricky&#39;))</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Use <code>read.csv</code> to import the Covid19 Vaccination data
 from WHO: <a href="https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv">link</a>.</p></li>
 <li><p>Show the names of the variables in the data</p></li>
 </ol>
-<p>df &lt;- read.csv(‘us-states.csv’) names(df)</p>
+<pre class="r"><code> df &lt;- read.csv(&#39;us-states.csv&#39;)
+ names(df)</code></pre>
+<pre><code>## [1] &quot;date&quot;   &quot;state&quot;  &quot;fips&quot;   &quot;cases&quot;  &quot;deaths&quot;</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>How many columns and rows the data have?</li>
 </ol>
-<p>nrow(df) ncol(df)</p>
+<pre class="r"><code>nrow(df)</code></pre>
+<pre><code>## [1] 51358</code></pre>
+<pre class="r"><code>ncol(df)</code></pre>
+<pre><code>## [1] 5</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>How many missing values are there? Show the missing values by
 columns. What variable has the most number of missing values?</li>
 </ol>
-<p>sum(is.na(df)) colSums(is.na(df)) colMeans(is.na(df))</p>
+<pre class="r"><code>sum(is.na(df))</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>colSums(is.na(df))</code></pre>
+<pre><code>##   date  state   fips  cases deaths 
+##      0      0      0      0      0</code></pre>
+<pre class="r"><code>colMeans(is.na(df))</code></pre>
+<pre><code>##   date  state   fips  cases deaths 
+##      0      0      0      0      0</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>What is the class of the <code>date</code> column. Change the
 <code>date</code> columns to <code>date</code> type using the
 <code>as.Date</code> function. Show the new class of the
 <code>date</code> column.</li>
 </ol>
-<p>class(df<span class="math inline">\(Date) df\)</span>Date =
-as.Date(df<span class="math inline">\(Date) class(df\)</span>Date)</p>
+<pre class="r"><code>class(df$Date)
+df$Date = as.Date(df$Date)
+class(df$Date)</code></pre>
 <ol start="6" style="list-style-type: decimal">
 <li>Capitalize the names of all the variables</li>
 </ol>
-<p>names(df)[1] &lt;- ‘Date’ names(df)[2] &lt;- ‘State’ names(df)[3]
-&lt;- ‘Fips’ names(df)[4] &lt;- ‘Cases’ names(df)[5] &lt;- ‘Deaths’</p>
+<pre class="r"><code>names(df)[1] &lt;- &#39;Date&#39;
+names(df)[2] &lt;- &#39;State&#39;
+names(df)[3] &lt;- &#39;Fips&#39;
+names(df)[4] &lt;- &#39;Cases&#39;
+names(df)[5] &lt;- &#39;Deaths&#39;</code></pre>
 <ol start="7" style="list-style-type: decimal">
 <li>Find the average number of cases per day. Find the maximum cases a
 day.</li>
 </ol>
-<p>mean(df<span class="math inline">\(Cases, na.rm=TRUE)
-max(df\)</span>Cases, na.rm=TRUE)</p>
+<pre class="r"><code>mean(df$Cases, na.rm=TRUE)</code></pre>
+<pre><code>## [1] 706041.1</code></pre>
+<pre class="r"><code>max(df$Cases, na.rm=TRUE)</code></pre>
+<pre><code>## [1] 11194286</code></pre>
 <ol start="8" style="list-style-type: decimal">
 <li>How many states are there in the data?</li>
 </ol>
-<p>table(df<span class="math inline">\(State)
-length(table(df\)</span>State))</p>
+<pre class="r"><code>table(df$State)</code></pre>
+<pre><code>## 
+##                  Alabama                   Alaska           American Samoa 
+##                      917                      918                      359 
+##                  Arizona                 Arkansas               California 
+##                      964                      919                      965 
+##                 Colorado              Connecticut                 Delaware 
+##                      925                      922                      919 
+##     District of Columbia                  Florida                  Georgia 
+##                      923                      929                      928 
+##                     Guam                   Hawaii                    Idaho 
+##                      915                      924                      917 
+##                 Illinois                  Indiana                     Iowa 
+##                      966                      924                      922 
+##                   Kansas                 Kentucky                Louisiana 
+##                      923                      924                      921 
+##                    Maine                 Maryland            Massachusetts 
+##                      918                      925                      958 
+##                 Michigan                Minnesota              Mississippi 
+##                      920                      924                      919 
+##                 Missouri                  Montana                 Nebraska 
+##                      923                      917                      942 
+##                   Nevada            New Hampshire               New Jersey 
+##                      925                      928                      926 
+##               New Mexico                 New York           North Carolina 
+##                      919                      929                      927 
+##             North Dakota Northern Mariana Islands                     Ohio 
+##                      919                      902                      921 
+##                 Oklahoma                   Oregon             Pennsylvania 
+##                      924                      931                      924 
+##              Puerto Rico             Rhode Island           South Carolina 
+##                      917                      929                      924 
+##             South Dakota                Tennessee                    Texas 
+##                      920                      925                      947 
+##                     Utah                  Vermont           Virgin Islands 
+##                      934                      923                      916 
+##                 Virginia               Washington            West Virginia 
+##                      923                      969                      913 
+##                Wisconsin                  Wyoming 
+##                      954                      919</code></pre>
+<pre class="r"><code>length(table(df$State))</code></pre>
+<pre><code>## [1] 56</code></pre>
 <ol start="9" style="list-style-type: decimal">
 <li>Create a new variable <code>weekdays</code> to store the weekday for
 each rows.</li>
 </ol>
-<p>df<span class="math inline">\(Weekdays &lt;-
-weekdays(df\)</span>Date)</p>
+<pre class="r"><code>df$Weekdays &lt;- weekdays(df$Date)</code></pre>
 <ol start="10" style="list-style-type: decimal">
 <li>Create the categorical variable <code>death2</code> variable taking
 the values as follows</li>
@@ -475,19 +531,23 @@ the values as follows</li>
 <li><code>has_death</code> if there is a death that day</li>
 <li><code>no_death</code> if there is no death that day</li>
 </ul>
-<p>df<span class="math inline">\(death2 &lt;-
-ifelse(df\)</span>Deaths&gt;0, ‘has_death’,‘no_death’)
-table(df$death2)</p>
+<pre class="r"><code>df$death2 &lt;- ifelse(df$Deaths&gt;0, &#39;has_death&#39;,&#39;no_death&#39;)
+table(df$death2)</code></pre>
+<pre><code>## 
+## has_death  no_death 
+##     50206      1152</code></pre>
 <p>Find the frequency and relative frequency of <code>no_death</code>
 and <code>has_death</code>.</p>
-<p>freq &lt;- table(df<span class="math inline">\(death2) freq rf &lt;-
-table(df\)</span>death2)/length(df$death2) rf</p>
+<pre class="r"><code>freq &lt;- table(df$death2)
+rf &lt;- table(df$death2)/length(df$death2)</code></pre>
 <ol start="11" style="list-style-type: decimal">
 <li>Find the first quartile (Q1), second quartile (Q2) and and third
 quartile (Q3) of the variable <code>death</code>. (Hint: Use the
 <code>summary</code> function)</li>
 </ol>
-<p>summary(df$Deaths)</p>
+<pre class="r"><code>summary(df$Deaths)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##       0     846    4101   10180   12718   95859</code></pre>
 <ol start="12" style="list-style-type: decimal">
 <li>Create the categorical variable <code>death3</code> variable taking
 the values as follows</li>
@@ -500,28 +560,37 @@ Q3</p></li>
 <li><p><code>high_death</code> if the number of deaths greater than
 Q3</p></li>
 </ul>
-<p>df<span class="math inline">\(death3 &lt;-
-case_when(df\)</span>Deaths&lt;=846 ~ ‘low_death’,df<span class="math inline">\(Deaths&lt;=4101 ~ &#39;mid_death&#39;, TRUE ~
-&#39;high_death&#39;) table(df\)</span>death3)</p>
+<pre class="r"><code>df$death3 &lt;- case_when(df$Deaths&lt;=846 ~ &#39;low_death&#39;,df$Deaths&lt;=4101 ~ &#39;mid_death&#39;, TRUE ~ &#39;high_death&#39;)
+table(df$death3)</code></pre>
 <ol start="13" style="list-style-type: decimal">
 <li>Find the average cases in Rhode Island in 2021</li>
 </ol>
-<p>dfg &lt;- df[(df<span class="math inline">\(State==&#39;Rhode
-Island&#39;)&amp;(df\)</span>Date&gt;=‘2021-01-01’)&amp;(df<span class="math inline">\(Date&lt;&#39;2022-01-01&#39;),]
-mean(dfg\)</span>Cases)</p>
+<pre class="r"><code>dfg &lt;- df[(df$State==&#39;Rhode Island&#39;)&amp;(df$Date&gt;=&#39;2021-01-01&#39;)&amp;(df$Date&lt;&#39;2022-01-01&#39;),]
+mean(dfg$Cases)</code></pre>
+<pre><code>## [1] 154438.5</code></pre>
 <ol start="14" style="list-style-type: decimal">
 <li>Find the median cases by weekdays in Rhode Island in 2021</li>
 </ol>
-<p>dfg1 &lt;- df[(df<span class="math inline">\(State==&#39;Rhode
-Island&#39;),] by(df\)</span>Cases,df$Weekdays,median)</p>
+<pre class="r"><code>dfg1 &lt;- df[(df$State==&#39;Rhode Island&#39;),]
+by(df$Cases,df$Weekdays,median)</code></pre>
 <ol start="15" style="list-style-type: decimal">
 <li>Compare the median cases in Rhode Island in June, July, August and
 September in 2021.</li>
 </ol>
-<p>dfg2 &lt;- df[(df<span class="math inline">\(State==&#39;Rhode
-Island&#39;)&amp;(df\)</span>Date&gt;=‘2021-06-01’)&amp;(df<span class="math inline">\(Date&lt;&#39;2021-10-01&#39;),] dfg2\)</span>Month
-&lt;- substr(dfg2<span class="math inline">\(Date,6,7)
-by(dfg2\)</span>Cases,dfg2$Month,median)</p>
+<pre class="r"><code>dfg2 &lt;- df[(df$State==&#39;Rhode Island&#39;)&amp;(df$Date&gt;=&#39;2021-06-01&#39;)&amp;(df$Date&lt;&#39;2021-10-01&#39;),]
+dfg2$Month &lt;- substr(dfg2$Date,6,7)
+by(dfg2$Cases,dfg2$Month,median)</code></pre>
+<pre><code>## dfg2$Month: 06
+## [1] 152319.5
+## ------------------------------------------------------------ 
+## dfg2$Month: 07
+## [1] 152971
+## ------------------------------------------------------------ 
+## dfg2$Month: 08
+## [1] 158283
+## ------------------------------------------------------------ 
+## dfg2$Month: 09
+## [1] 167814</code></pre>
 <ol start="16" style="list-style-type: decimal">
 <li>Find your own dataset, import it and implement the following
 functions on the data</li>
@@ -540,14 +609,21 @@ functions on the data</li>
 <li>ifelse</li>
 <li>case_when</li>
 </ul>
-<p>titanic &lt;- read.csv(‘titanic.csv’) str(titanic) names(titanic)
-mean(titanic<span class="math inline">\(Fare) max(titanic\)</span>Fare)
-min(titanic<span class="math inline">\(Fare) table(titanic\)</span>Sex)
-is.na(titanic) colSums(is.na(titanic)) class(titanic<span class="math inline">\(Sex) cor(titanic\)</span>Sex, titanic<span class="math inline">\(Survived) by(titanic\)</span>Pclass, titanic<span class="math inline">\(Survived, FUN = mean) titanic\)</span>Old &lt;-
-ifelse(titanic<span class="math inline">\(Age&lt;20,&quot;child&quot;,&quot;adult&quot;)
-table(titanic\)</span>Old) titanic<span class="math inline">\(Maturity
-&lt;- case_when(titanic\)</span>MIN&lt;=12 ~ ‘child’, titanic$MIN&lt;=21
-~ ‘teenager’,TRUE ~ ‘adult’)</p>
+<pre class="r"><code>titanic &lt;- read.csv(&#39;titanic.csv&#39;)
+str(titanic)
+names(titanic)
+mean(titanic$Fare)
+max(titanic$Fare)
+min(titanic$Fare)
+table(titanic$Sex)
+is.na(titanic)
+colSums(is.na(titanic))
+class(titanic$Sex)
+cor(titanic$Sex, titanic$Survived)
+by(titanic$Pclass, titanic$Survived, FUN = mean)
+titanic$Old &lt;- ifelse(titanic$Age&lt;20,&quot;child&quot;,&quot;adult&quot;)
+table(titanic$Old)
+titanic$Maturity &lt;- case_when(titanic$MIN&lt;=12 ~ &#39;child&#39;, titanic$MIN&lt;=21 ~ &#39;teenager&#39;,TRUE ~ &#39;adult&#39;)</code></pre>
 <ol start="17" style="list-style-type: decimal">
 <li>In the dataset in #16, practice the follows. You can reuse the code
 of 16.</li>
@@ -557,11 +633,9 @@ of 16.</li>
 <li>From one categorical variable, create a new categorical variable
 with fewer categories</li>
 </ul>
-<p>titanic<span class="math inline">\(Old &lt;-
-ifelse(titanic\)</span>Age&lt;20,“child”,“adult”) table(titanic<span class="math inline">\(Old) titanic\)</span>Country &lt;-
-case_when(titanic<span class="math inline">\(Embarked =&#39;C&#39; ~
-&#39;Germany&#39;, titanic\)</span>Embarked =‘S’ ~ ‘England’,
-titanic$Embarked =‘Q’ ~ ‘England’)</p>
+<pre class="r"><code>titanic$Old &lt;- ifelse(titanic$Age&lt;20,&quot;child&quot;,&quot;adult&quot;)
+table(titanic$Old)
+titanic$Country &lt;- case_when(titanic$Embarked =&#39;C&#39; ~ &#39;Germany&#39;, titanic$Embarked =&#39;S&#39; ~ &#39;England&#39;, titanic$Embarked =&#39;Q&#39; ~ &#39;England&#39;)</code></pre>
 <p>If you do not have a data, you can use <a href="https://www.kaggle.com/competitions/titanic/overview">the titanic
 dataset</a>, which can be downloaded at <a href="../data/titanic.csv">this link</a></p>
 </div>
