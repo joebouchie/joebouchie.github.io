@@ -1,11 +1,13 @@
 # Math421 Statistical Analysis with R
 
-[Click here to my Assignment 1](Assignment1.html)
+[Assignment 1](Assignment1.html)
 
-[Click here to my Assignment 2](assignment2.html)
+[Assignment 2](assignment2.html)
 
-[Click here to my assignment 3](assignment3.html)
+[Assignment 3](assignment3.html)
 
-[Click here to my Assignment 4](assignment4.html)
+[Assignment 4](assignment4.html)
 
-[Click here to my Assignment 5](assignment5.html)
+[Assignment 5](assignment5.html)
+
+[Assignment 6](assignment6.html)
