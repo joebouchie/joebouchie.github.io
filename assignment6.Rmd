@@ -35,24 +35,25 @@ Choose a dataset and produce the following types of plots and comment on each pl
 
 - Density
 
-```{r, eval=FALSE}
+```{r}
 library(tidyverse)
+df <- read_csv('C:/Users/student/OneDrive - Bryant University/Documents/R/Math421/Hitters.csv')
 df %>% ggplot()+
-   geom_density(mapping = aes(x = death))
+   geom_density(mapping = aes(x = HmRun))
 ```
 
 - Histogram 
 
-```{r, eval=FALSE}
+```{r}
 df %>% ggplot()+
-   geom_histogram(mapping = aes(x = death))
+   geom_histogram(mapping = aes(x = HmRun))
 ```
 
 - Boxplot
 
-```{r, eval=FALSE}
+```{r}
 df %>% ggplot()+
-   geom_boxplot(mapping = aes(x = death))
+   geom_boxplot(mapping = aes(x = HmRun))
 
 ```
 
@@ -62,9 +63,9 @@ df %>% ggplot()+
 
 - Barplot
 
-```{r, eval=FALSE}
+```{r}
 df %>% ggplot()+
-   geom_bar(mapping = aes(x = state))
+   geom_bar(mapping = aes(x = League))
 
 ```
 
@@ -74,20 +75,20 @@ df %>% ggplot()+
 
 - Scatter Plot
 
-```{r, eval=FALSE}
-df %>% ggplot()+geom_point(aes(x=hospitalized, y=death))
+```{r}
+df %>% ggplot()+geom_point(aes(x=HmRun, y=Salary))
 ```
 
 - Line Plot
 
-```{r, eval=FALSE}
-df %>% ggplot()+geom_line(aes(x=hospitalized, y=death))
+```{r}
+df %>% ggplot()+geom_line(aes(x=Years, y=CHits))
 ```
 
 - Smooth Plot
 
-```{r, eval=FALSE}
-df %>% ggplot()+geom_smooth(aes(x=hospitalized, y=death))
+```{r}
+df %>% ggplot()+geom_smooth(aes(x=Years, y=CHmRun))
 ```
 
 -------
@@ -96,32 +97,32 @@ df %>% ggplot()+geom_smooth(aes(x=hospitalized, y=death))
 
 - Density
 
-```{r, eval=FALSE}
+```{r}
 df %>% ggplot()+
-   geom_density(mapping = aes(x = state, y= death))
+   geom_density(mapping = aes(x = HmRun, color= League))
 ```
 
 - BoxPlot
 
-```{r, eval=FALSE}
+```{r}
 df %>% ggplot()+
-   geom_boxplot(mapping = aes(x = state, y=death))
+   geom_boxplot(mapping = aes(x = Division, y=HmRun))
 ```
 
 -------
 
 5. For two categorical variables: barplot
 
-```{r, eval=FALSE}
+```{r}
 df %>% ggplot()+
-   geom_boxplot(mapping = aes(x = state, y=positiveScore))
+   geom_bar(mapping = aes(x = League, color=Division))
 ```
 
 -------
 
 6. A plot that contains three variables
 
-```{r, eval=FALSE}
+```{r}
 df %>% ggplot()+
-   geom_density(mapping = aes(x = state, y=death, color=positiveScore))
+   geom_point(mapping = aes(x = League, y=HmRun, color=Division))
 ```
