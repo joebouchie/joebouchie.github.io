@@ -15,3 +15,5 @@
 [Assignment 7](assignment7.html)
 
 [Plot](baseball.png)
+
+[Assignment 8](assignment8.html)
