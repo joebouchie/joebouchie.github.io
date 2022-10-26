@@ -1,3 +1,5 @@
+name: Statistical Analysis with R
+title: null
 # Math421 Statistical Analysis with R
 
 [Assignment 1](Assignment1.html)
@@ -21,3 +23,5 @@
 [Assignment 9](assignment9.html)
 
 [Assignment 10](assignment10.html)
+
+[Assignment 11](assignment11.html)
