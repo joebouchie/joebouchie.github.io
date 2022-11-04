@@ -26,5 +26,5 @@
 
 [Assignment 12](assignment12.html)
 
-[Midterm Exam](midterm_toc.html)
+[Midterm](midterm_toc.html)
 
